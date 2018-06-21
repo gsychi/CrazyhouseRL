@@ -4,6 +4,7 @@ import numpy as np
 import torch.nn as nn
 import torch.utils.data as data_utils
 from ChessConvNet import ChessConvNet
+import ActionToArray
 
 class ChessEnvironment():
 
@@ -257,30 +258,36 @@ class ChessEnvironment():
 
 board = ChessEnvironment()
 open = board.boardToState()
+openA = ActionToArray.moveArray("e2e4", board.arrayBoard)
 board.makeMove("e2e4")
 board.makeMove("d7d5")
 board.makeMove("e4e5")
 board.makeMove("f7f5")
 blah = board.boardToState()
+blahA = ActionToArray.moveArray("e5f6", board.arrayBoard)
 board.makeMove("e5f6")
 board.makeMove("g8f6")
+wow = board.boardToState()
+wowA = ActionToArray.moveArray("b1c3", board.arrayBoard)
 board.makeMove("b1c3")
 
 board.printBoard()
 print(board.board.legal_moves)
-wow = board.boardToState()
+
 
 #TIME FOR THE ML WORK
 
 # Hyper Parameters
-EPOCHS = 3000            # train the training data n times, to save time, we just train 1 epoch
+EPOCHS = 500            # train the training data n times, to save time, we just train 1 epoch
 BATCH_SIZE = 3          # batch size
 LR = 0.01               # learning rate
-OUTPUT_ARRAY_LEN = 4504
+OUTPUT_ARRAY_LEN = 4504 # actual length of array output
+
 
 
 inputs = torch.from_numpy(np.concatenate((open, wow, blah)))
-outputs = torch.from_numpy(np.random.rand(len(inputs), OUTPUT_ARRAY_LEN)).double()
+outputs = torch.from_numpy(np.concatenate((openA, wowA, blahA)))
+#outputs = torch.from_numpy(np.random.rand(len(inputs), OUTPUT_ARRAY_LEN)).double()
 
 boards, actions = inputs, outputs
 
