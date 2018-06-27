@@ -83,7 +83,8 @@ tempBoard = ChessEnvironment()
 treeSearch = MCTS()
 
 treeSearch.printInformation()
-treeSearch.addPositionToMCTS(tempBoard.boardToString(), ActionToArray.legalMovesForState(tempBoard.arrayBoard, tempBoard.board))
+treeSearch.addPositionToMCTS(tempBoard.boardToString(), ActionToArray.legalMovesForState(tempBoard.arrayBoard,
+                                                                                         tempBoard.board))
 treeSearch.printInformation()
 
 

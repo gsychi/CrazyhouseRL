@@ -333,6 +333,12 @@ listOfMoves = ["e2e4", "e7e6", "d2d4", "b8c6", "g1f3", "d7d5", "e4e5", "g8e7", "
                "f1d1", "c8d7", "d1d7", "d8d7", "Q@d4", "R@d6", "N@c5", "d7e8", "B@b5", "c7c6", "e5d6", "h3g2",
                "N@c7", "e8d8", "R@e8"]
 
+listOfMoves = ["e2e4", "e7e5", "d2d4", "b8c6", "d4e5", "c6e5", "g1f3", "e5f3", "g2f3", "g8f6", "P@e5", "d7d5",
+               "e5f6", "d8f6", "b1c3", "N@h4", "f1e2", "h4g2", "e1f1", "c8h3", "c3d5", "g2e3", "f1e1", "e3g2",
+               "e1d2", "f6d4", "N@d3", "d4d5", "e4d5", "P@d4", "c2c3", "P@e3", "d2c2", "e3f2", "Q@e5", "f8e7",
+               "e5g7", "h8f8", "P@e6", "N@f6", "e6f7", "f8f7", "g7f7", "e8f7", "d3e5", "f7f8", "R@h8", "f8g7",
+               "h8a8", "Q@f5", "R@e4", "f6e4", "P@h6", "g7f6", "N@e8", "f6e5", "d1d4"]
+
 inputs = np.zeros(1)
 outputs = np.zeros(1)
 
@@ -388,7 +394,6 @@ class MyDataset(torch.utils.data.Dataset):
 
     def __len__(self):
         return len(self.features)
-
 
 data = MyDataset(boards, actions)
 

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8565c7fb-7e5f-4d02-8b8f-c6daf92900c7" name="Default" comment="" />
+    <list default="true" id="8565c7fb-7e5f-4d02-8b8f-c6daf92900c7" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/ChessEnvironment.py" afterPath="$PROJECT_DIR$/ChessEnvironment.py" />
+      <change beforePath="$PROJECT_DIR$/MCTSCrazyhouse.py" afterPath="$PROJECT_DIR$/MCTSCrazyhouse.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,12 +14,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ActionToArray.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ActionToArray.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ActionToArray.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="451" column="7" lean-forward="true" selection-start-line="451" selection-start-column="7" selection-end-line="451" selection-end-column="7" />
-              <folding />
+            <state relative-caret-position="-193">
+              <caret line="501" column="0" lean-forward="true" selection-start-line="501" selection-start-column="0" selection-end-line="501" selection-end-column="0" />
+              <folding>
+                <element signature="e#215#5614#0" expanded="false" />
+                <element signature="e#5717#5973#0" expanded="false" />
+                <element signature="e#6028#6720#0" expanded="false" />
+                <element signature="e#6778#7041#0" expanded="false" />
+                <element signature="e#7177#12982#0" expanded="false" />
+                <element signature="e#13032#13162#0" expanded="false" />
+                <element signature="e#13302#19031#0" expanded="false" />
+                <element signature="e#19083#20089#0" expanded="false" />
+                <element signature="e#20147#20299#0" expanded="false" />
+                <element signature="e#20340#20692#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -24,10 +38,25 @@
       <file leaf-file-name="ChessEnvironment.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ChessEnvironment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="465" column="75" lean-forward="false" selection-start-line="465" selection-start-column="75" selection-end-line="465" selection-end-column="75" />
+            <state relative-caret-position="-57">
+              <caret line="396" column="0" lean-forward="true" selection-start-line="396" selection-start-column="0" selection-end-line="396" selection-end-column="0" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
+                <element signature="e#205#14191#0" expanded="false" />
+                <element signature="e#233#1931#0" expanded="false" />
+                <element signature="e#16536#16784#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MCTSCrazyhouse.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MCTSCrazyhouse.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="84" column="29" lean-forward="true" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+              <folding>
+                <element signature="e#602#620#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,6 +79,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>d2d3</find>
+      <find>illegal Move</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -58,14 +88,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ChessEnvironment.py" />
         <option value="$PROJECT_DIR$/ActionToArray.py" />
+        <option value="$PROJECT_DIR$/ChessEnvironment.py" />
+        <option value="$PROJECT_DIR$/MCTSCrazyhouse.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="311" />
     <option name="y" value="23" />
-    <option name="width" value="1440" />
+    <option name="width" value="1128" />
     <option name="height" value="825" />
   </component>
   <component name="ProjectView">
@@ -179,9 +211,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="825" extended-state="6" />
+    <frame x="0" y="23" width="1439" height="825" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25017372" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -208,16 +240,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MCTSCrazyhouse.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="83" column="0" lean-forward="true" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding>
-            <element signature="e#602#620#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ChessConvNet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
@@ -228,21 +250,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ChessEnvironment.py">
+    <entry file="file://$PROJECT_DIR$/ActionToArray.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="465" column="75" lean-forward="false" selection-start-line="465" selection-start-column="75" selection-end-line="465" selection-end-column="75" />
+        <state relative-caret-position="-193">
+          <caret line="501" column="0" lean-forward="true" selection-start-line="501" selection-start-column="0" selection-end-line="501" selection-end-column="0" />
           <folding>
-            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#215#5614#0" expanded="false" />
+            <element signature="e#5717#5973#0" expanded="false" />
+            <element signature="e#6028#6720#0" expanded="false" />
+            <element signature="e#6778#7041#0" expanded="false" />
+            <element signature="e#7177#12982#0" expanded="false" />
+            <element signature="e#13032#13162#0" expanded="false" />
+            <element signature="e#13302#19031#0" expanded="false" />
+            <element signature="e#19083#20089#0" expanded="false" />
+            <element signature="e#20147#20299#0" expanded="false" />
+            <element signature="e#20340#20692#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ActionToArray.py">
+    <entry file="file://$PROJECT_DIR$/ChessEnvironment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="451" column="7" lean-forward="true" selection-start-line="451" selection-start-column="7" selection-end-line="451" selection-end-column="7" />
-          <folding />
+        <state relative-caret-position="-57">
+          <caret line="396" column="0" lean-forward="true" selection-start-line="396" selection-start-column="0" selection-end-line="396" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#205#14191#0" expanded="false" />
+            <element signature="e#233#1931#0" expanded="false" />
+            <element signature="e#16536#16784#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCTSCrazyhouse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="84" column="29" lean-forward="true" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+          <folding>
+            <element signature="e#602#620#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
