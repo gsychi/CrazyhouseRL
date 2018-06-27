@@ -189,7 +189,7 @@ def moveablePiecesPenalty(board, pythonChessBoard):
                 moveablePieces[i][j] = -100000
     return moveablePieces
 
-# move is a string, turns into array. pick-up square has value 2 instead of 1.
+# move is a string, turns into array. pick-up square should have value 2 instead of 1.
 def moveArray(move, board, notArrayToString=True):
     placedPlane = np.zeros((5, 8, 8))  # pawn, knight, bishop, rook, queen.
     pickUpPlane = np.zeros((8, 8))
@@ -495,9 +495,6 @@ def sortEvals(moveNames, scores):
                 scores[j] = temp
 
     return moveNames
-
-
-
 
 
 testing = False
