@@ -458,9 +458,9 @@ if train:
                                 evaluationScores = ActionToArray.moveEvaluations(
                                     ActionToArray.legalMovesForState(newBoard.arrayBoard, newBoard.board), newBoard.arrayBoard,
                                     outputs[i])
-                                print(legalMoves)
-                                print(evaluationScores)
+                                print("Evaluation Rankings: ")
                                 print(" = " + legalMoves[np.argmax(evaluationScores)])
+                                print(ActionToArray.sortEvals(legalMoves, evaluationScores))
 
                                 newBoard.makeMove(move)
                                 newBoard.gameResult()

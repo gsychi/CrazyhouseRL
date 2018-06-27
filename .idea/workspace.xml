@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8565c7fb-7e5f-4d02-8b8f-c6daf92900c7" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/ActionToArray.py" afterPath="$PROJECT_DIR$/ActionToArray.py" />
-      <change beforePath="$PROJECT_DIR$/ChessConvNet.py" afterPath="$PROJECT_DIR$/ChessConvNet.py" />
       <change beforePath="$PROJECT_DIR$/ChessEnvironment.py" afterPath="$PROJECT_DIR$/ChessEnvironment.py" />
-      <change beforePath="$PROJECT_DIR$/testing.py" afterPath="$PROJECT_DIR$/testing.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,23 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MCTSCrazyhouse.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MCTSCrazyhouse.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding>
-                <element signature="e#602#620#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ActionToArray.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ActionToArray.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="248">
+              <caret line="486" column="23" lean-forward="false" selection-start-line="486" selection-start-column="23" selection-end-line="486" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -42,8 +28,8 @@
       <file leaf-file-name="ChessEnvironment.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ChessEnvironment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="67" column="29" lean-forward="true" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
+            <state relative-caret-position="240">
+              <caret line="460" column="60" lean-forward="false" selection-start-line="460" selection-start-column="60" selection-end-line="460" selection-end-column="60" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -65,8 +51,21 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>d2d3</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/ActionToArray.py" />
+        <option value="$PROJECT_DIR$/ChessEnvironment.py" />
+      </list>
+    </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
@@ -226,8 +225,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MCTSCrazyhouse.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="318">
+          <caret line="83" column="0" lean-forward="true" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding>
             <element signature="e#602#620#0" expanded="true" />
           </folding>
@@ -236,16 +235,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ActionToArray.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="248">
+          <caret line="486" column="23" lean-forward="false" selection-start-line="486" selection-start-column="23" selection-end-line="486" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ChessEnvironment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="67" column="29" lean-forward="true" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
+        <state relative-caret-position="240">
+          <caret line="460" column="60" lean-forward="false" selection-start-line="460" selection-start-column="60" selection-end-line="460" selection-end-column="60" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>

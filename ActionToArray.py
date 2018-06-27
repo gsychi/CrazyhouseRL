@@ -481,6 +481,21 @@ def moveEvaluations(legalMoves, board, prediction):
         evals[i] = moveEvaluation(legalMoves[i], board, prediction)
     return evals
 
+def sortEvals(moveNames, scores):
+
+    for i in range(len(moveNames)):
+        for j in range(len(moveNames)):
+            if scores[j] < scores[i]:
+                temp = moveNames[i]
+                moveNames[i] = moveNames[j]
+                moveNames[j] = temp
+
+                temp = scores[i]
+                scores[i] = scores[j]
+                scores[j] = temp
+
+    return moveNames
+
 
 
 
