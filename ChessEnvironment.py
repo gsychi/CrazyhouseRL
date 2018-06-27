@@ -453,7 +453,10 @@ if train:
                                                                    newBoard.arrayBoard, newBoard.board,
                                                                    newBoard.whiteCaptivePieces, newBoard.blackCaptivePieces,
                                                                    newBoard.plies)
-                                print(move)
+                                print("******")
+                                print("MOVE: ", move)
+
+                                # See if the evaluation score matches up with the argmax function!
                                 legalMoves = ActionToArray.legalMovesForState(newBoard.arrayBoard, newBoard.board)
                                 evaluationScores = ActionToArray.moveEvaluations(
                                     ActionToArray.legalMovesForState(newBoard.arrayBoard, newBoard.board), newBoard.arrayBoard,

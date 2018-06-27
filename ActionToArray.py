@@ -445,10 +445,10 @@ def moveEvaluation(move, board, prediction):
     prediction = (prediction.numpy().flatten() * 2) + 0.5
     move = moveArray(move, board).flatten()
     evaluate = (move * prediction)
-    pickUp = np.argmax(evaluate)
     finalEval = np.sum(evaluate)
-    if pickUp < 64*5:
+    if np.sum(move) == 1:
         finalEval *= 2
+
     """
     finalEval = 0
     pickUp = True

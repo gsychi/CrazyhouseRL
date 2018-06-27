@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8565c7fb-7e5f-4d02-8b8f-c6daf92900c7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/ActionToArray.py" afterPath="$PROJECT_DIR$/ActionToArray.py" />
       <change beforePath="$PROJECT_DIR$/ChessEnvironment.py" afterPath="$PROJECT_DIR$/ChessEnvironment.py" />
     </list>
@@ -15,21 +14,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ActionToArray.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ActionToArray.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ActionToArray.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="486" column="23" lean-forward="false" selection-start-line="486" selection-start-column="23" selection-end-line="486" selection-end-column="23" />
+            <state relative-caret-position="177">
+              <caret line="443" column="0" lean-forward="true" selection-start-line="443" selection-start-column="0" selection-end-line="443" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChessEnvironment.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ChessEnvironment.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ChessEnvironment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="460" column="60" lean-forward="false" selection-start-line="460" selection-start-column="60" selection-end-line="460" selection-end-column="60" />
+            <state relative-caret-position="339">
+              <caret line="470" column="58" lean-forward="true" selection-start-line="470" selection-start-column="58" selection-end-line="470" selection-end-column="58" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -62,8 +61,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ActionToArray.py" />
         <option value="$PROJECT_DIR$/ChessEnvironment.py" />
+        <option value="$PROJECT_DIR$/ActionToArray.py" />
       </list>
     </option>
   </component>
@@ -213,16 +212,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ChessConvNet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MCTSCrazyhouse.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
@@ -233,21 +222,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ActionToArray.py">
+    <entry file="file://$PROJECT_DIR$/ChessConvNet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="486" column="23" lean-forward="false" selection-start-line="486" selection-start-column="23" selection-end-line="486" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="462">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ChessEnvironment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="460" column="60" lean-forward="false" selection-start-line="460" selection-start-column="60" selection-end-line="460" selection-end-column="60" />
+        <state relative-caret-position="339">
+          <caret line="470" column="58" lean-forward="true" selection-start-line="470" selection-start-column="58" selection-end-line="470" selection-end-column="58" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActionToArray.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="443" column="0" lean-forward="true" selection-start-line="443" selection-start-column="0" selection-end-line="443" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
