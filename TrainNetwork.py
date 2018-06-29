@@ -137,6 +137,11 @@ def trainNetwork(states, outputMoves, EPOCHS=10000, BATCH_SIZE=1000, LR=0.001, l
                             print("Updated!")
                             trainNotFinished = False
 
+    # make sure it saves the model regardless.
+    torch.save(model, saveDirectory)
+    print("Updated!")
+
+
 board = ChessEnvironment()
 
 # here is a fascinating crazyhouse game...
@@ -175,8 +180,9 @@ for i in range(len(listOfMoves)):
         inputs = np.concatenate((inputs, state))
         outputs = np.concatenate((outputs, action))
 
+print(inputs.shape)
+
 print(board.board)
-print(board.arrayBoard)
 
 # Now, with this database, we start training the neural network.
 trainNetwork(inputs, outputs, saveDirectory="TwelveTeenWeights.pt")

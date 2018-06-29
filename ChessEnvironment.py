@@ -154,24 +154,24 @@ class ChessEnvironment():
             initialCol = int(rowNames.find(move[0]))  # for e2d4, move[1] returns e
             finalRow = 8 - int(move[3])  # for e2d4, move[3] returns 4
             finalCol = int(rowNames.find(move[2]))  # for e2d4, move[2] returns d
-            # SPECIAL MOVE 1: CASTLING
-            if move == "e1g1":
+            # SPECIAL MOVE 1: CASTLING. MAKE SURE THAT THE PIECE IN QUESTION IS A KING!!!
+            if move == "e1g1" and self.arrayBoard[7][4] == "K" and self.arrayBoard[7][7] == "R":
                 self.arrayBoard[7][4] = " "
                 self.arrayBoard[7][7] = " "
                 self.arrayBoard[7][5] = "R"
                 self.arrayBoard[7][6] = "K"
-            elif move == "e8g8":
+            elif move == "e8g8" and self.arrayBoard[0][4] == "k" and self.arrayBoard[0][7] == "r":
                 self.arrayBoard[0][4] = " "
                 self.arrayBoard[0][7] = " "
                 self.arrayBoard[0][5] = "R"
                 self.arrayBoard[0][6] = "K"
-            elif move == "e8c8":
+            elif move == "e8c8" and self.arrayBoard[0][4] == "k" and self.arrayBoard[0][0] == "r":
                 self.arrayBoard[0][0] = " "
                 self.arrayBoard[0][1] = " "
                 self.arrayBoard[0][4] = " "
                 self.arrayBoard[0][2] = "K"
                 self.arrayBoard[0][3] = "R"
-            elif move == "e1c1":
+            elif move == "e1c1" and self.arrayBoard[7][4] == "K" and self.arrayBoard[7][0] == "R":
                 self.arrayBoard[7][0] = " "
                 self.arrayBoard[7][1] = " "
                 self.arrayBoard[7][4] = " "
