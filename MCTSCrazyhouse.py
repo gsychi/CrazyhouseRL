@@ -406,6 +406,11 @@ class MCTS():
                 whiteStateWin.append(whiteStateSeen[i]*0)
             for j in range(len(blackStateSeen)):
                 blackStateWin.append(blackStateSeen[j])
+        if sim.result == 2:
+            for i in range(len(whiteStateSeen)):
+                whiteStateWin.append(whiteStateSeen[i]*0)
+            for j in range(len(blackStateSeen)):
+                blackStateWin.append(blackStateSeen[j]*0)
 
         parentStates = np.concatenate((whiteParentState, blackParentState))
         statesSeen = whiteStateSeen + blackStateSeen
@@ -523,38 +528,38 @@ class MCTS():
                     for j in range(len(newParentStates)):
                         if np.sum((abs(trainingParentStates[k].flatten() - newParentStates[j].flatten()))) == 0:
                             # If information is already in dataset, edit existing data
-                            trainingStatesWin[k] = trainingStatesWin[k] +newStatesWin[j]
+                            trainingStatesWin[k] = trainingStatesWin[k] + newStatesWin[j]
                             trainingStatesSeen[k] = trainingStatesSeen[k] + newStatesSeen[j]
                             removeDirectories.append(j)
+
                 removeDirectories.sort()
                 while len(removeDirectories) > 0:
                     index = removeDirectories.pop()
-                    appendParentStates = np.delete(newParentStates, index, axis=0)
-                    appendStatesSeen = newStatesSeen.pop(index)
-                    appendStatesWin = newStatesWin.pop(index)
-                    appendStatesName = newStatesName.pop(index)
+                    newParentStates = np.delete(newParentStates, index, axis=0)
+                    del newStatesSeen[index]
+                    del newStatesWin[index]
+                    del newStatesName[index]
 
-                trainingParentStates = np.concatenate((trainingParentStates, appendParentStates), axis=0)
-                trainingStatesSeen = trainingStatesSeen + appendStatesSeen
-                trainingStatesWin = trainingStatesWin + appendStatesWin
-                trainingStatesName = trainingStatesName + appendStatesName
-
-                print(trainingParentStates.shape)
-                print(trainingStatesSeen)
+                trainingParentStates = np.concatenate((trainingParentStates, newParentStates), axis=0)
+                trainingStatesSeen = trainingStatesSeen + newStatesSeen
+                trainingStatesWin = trainingStatesWin + newStatesWin
+                trainingStatesName = trainingStatesName + newStatesName
 
                 trainingWinPercentages = []
                 # Create win percentage for all moves:
                 for i in range(len(trainingStatesWin)): #length of tSW and tSS should be the same
-                    newEntry = trainingStatesWin[i] / trainingStatesSeen[i]
-                    newEntry.append(newEntry)
+                    newEntry = np.divide(trainingStatesWin[i], trainingStatesSeen[i], out=np.zeros_like(trainingStatesWin[i]),
+                                                                                                       where=trainingStatesSeen[i]!=0)
+                    trainingWinPercentages.append(newEntry)
 
         # return the information. trainingWinPercentage shas to be converted to a numpy array of correct shape!
+        print("Size of Training Material: ", len(trainingParentStates))
         return trainingParentStates, trainingWinPercentages
 
             # create trainingData.
 # Initialize board and the MCTS.
 
-treeSearch = MCTS('TwelveTeenWeights.pt')
+treeSearch = MCTS('newWeights.pt')
 
 # check to see how fast a playout is.
 
@@ -574,7 +579,7 @@ newBoard = ChessEnvironment()
 # FOR playout, update the legal moves, and should check if position that is currently seen and saved has the
 # same length for the legal moves. if not, refresh the stateSeen and stateWin
 
-treeSearch.createTrainingGames(3, 1)
+treeSearch.createTrainingGames(100, 1)
 
 # don't bother with competitive games yet.
 # for boardtostring, check if there is en passant square
