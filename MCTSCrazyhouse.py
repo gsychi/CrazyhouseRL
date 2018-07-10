@@ -57,10 +57,11 @@ def PUCT_Algorithm(w, n, c, N, q):
     PUCT = winRate + exploration
     return PUCT
 
+
 def noiseEvals(nnEvals, bounds):
     # this diversifies training data during its self-play games, in order to ensure that the computer looks at a lot of
     # different positions.
-    noise = (np.random.rand(len(nnEvals))*2*bounds)-(bounds)
+    noise = (np.random.rand(len(nnEvals)) * 2 * bounds) - (bounds)
     return noise + nnEvals
 
 
@@ -126,15 +127,14 @@ class MCTS():
 
         self.childrenNNEvaluation.append(evaluations)
 
-
         # NEED TO ADD ACTUALLY A PAWN
 
     def playout(self, round,
-                explorationConstant=0.15,   # lower? will test more.
+                explorationConstant=0.15,  # lower? will test more.
                 notFromBeginning=False, arrayBoard=0, pythonBoard=0, plies=0, wCap=0, bCap=0,
                 actuallyAPawn=0,
                 noise=True,
-                printPGN=True): # Here is the information just for starting at a different position
+                printPGN=True):  # Here is the information just for starting at a different position
 
         if printPGN:
             PGN = chess.pgn.Game()
@@ -182,16 +182,19 @@ class MCTS():
                                                tempBoard.arrayBoard, outputs)
                         # find and make the preferred move
                         if noise:
-                            noiseConstant = 0.6/(2.5*(1+tempBoard.plies))
+                            noiseConstant = 0.6 / (2.5 * (1 + tempBoard.plies))
                         else:
                             noiseConstant = 0
 
                         if len(self.childrenStateWin) > 0:
                             index = np.argmax(PUCT_Algorithm(self.childrenStateWin[len(self.childrenStateSeen) - 1],
-                                           self.childrenStateSeen[len(self.childrenStateSeen) - 1], explorationConstant,
-                                           np.sum(self.childrenStateSeen[len(self.childrenStateSeen) - 1]),
-                                           noiseEvals(self.childrenNNEvaluation[len(self.childrenStateSeen) - 1],
-                                                      noiseConstant)))
+                                                             self.childrenStateSeen[len(self.childrenStateSeen) - 1],
+                                                             explorationConstant,
+                                                             np.sum(self.childrenStateSeen[
+                                                                        len(self.childrenStateSeen) - 1]),
+                                                             noiseEvals(self.childrenNNEvaluation[
+                                                                            len(self.childrenStateSeen) - 1],
+                                                                        noiseConstant)))
                         else:
                             index = 0
 
@@ -202,7 +205,7 @@ class MCTS():
                             # play a random move
                             move = self.childrenMoveNames[len(self.childrenStateSeen) - 1][0]
 
-                        #print(move)
+                        # print(move)
                         tempBoard.makeMove(move)
 
                         actionVector = np.zeros(len(self.childrenMoveNames[len(self.childrenStateSeen) - 1]))
@@ -222,9 +225,8 @@ class MCTS():
                                                  ))
                 move = self.childrenMoveNames[directory][index]
 
-                #print(move)
+                # print(move)
                 tempBoard.makeMove(move)
-
 
                 # the move will have to be indexed correctly based on where the position is.
                 actionVector = np.zeros(len(self.childrenMoveNames[directory]))
@@ -244,7 +246,7 @@ class MCTS():
                 blackParentStateDictionary.append(position)
                 blackStateSeen.append(actionVector)
 
-            #print(tempBoard.board)
+            # print(tempBoard.board)
             tempBoard.gameResult()
 
         if tempBoard.result == 1:  # white victory
@@ -291,12 +293,12 @@ class MCTS():
             self.printSize()
 
     def trainingPlayoutFromBeginning(self, runs, printPGN):
-        for i in range(1, runs+1):
+        for i in range(1, runs + 1):
             print("GAME", str(i))
             self.playout(str(i), printPGN=printPGN)
 
     def competitivePlayoutFromBeginning(self, runs, printPGN):
-        for i in range(1, runs+1):
+        for i in range(1, runs + 1):
             print("GAME", str(i))
             self.playout(str(i), noise=False, printPGN=printPGN)
 
@@ -304,23 +306,27 @@ class MCTS():
         for i in range(runs):
             tempBoard = copy.deepcopy(sim)
             # playout from a certain position.
-            self.playout(str(int(i+1)), notFromBeginning=True, arrayBoard=tempBoard.arrayBoard, pythonBoard=tempBoard.board,
-                               plies=tempBoard.plies, wCap=tempBoard.whiteCaptivePieces, noise=True,
-                               bCap=tempBoard.blackCaptivePieces, actuallyAPawn=tempBoard.actuallyAPawn, explorationConstant=0.3, printPGN=False)
+            self.playout(str(int(i + 1)), notFromBeginning=True, arrayBoard=tempBoard.arrayBoard,
+                         pythonBoard=tempBoard.board,
+                         plies=tempBoard.plies, wCap=tempBoard.whiteCaptivePieces, noise=True,
+                         bCap=tempBoard.blackCaptivePieces, actuallyAPawn=tempBoard.actuallyAPawn,
+                         explorationConstant=0.3, printPGN=False)
 
-            #self.printSize()
-            #print(self.childrenMoveNames[self.dictionary[sim.boardToString()]])
-            #print(self.childrenStateSeen[self.dictionary[sim.boardToString()]])
+            # self.printSize()
+            # print(self.childrenMoveNames[self.dictionary[sim.boardToString()]])
+            # print(self.childrenStateSeen[self.dictionary[sim.boardToString()]])
 
     def competitivePlayoutsFromPosition(self, runs, sim):
         for i in range(runs):
             tempBoard = copy.deepcopy(sim)
             # playout from a certain position.
-            self.playout(str(int(i+1)), notFromBeginning=True, arrayBoard=tempBoard.arrayBoard, pythonBoard=tempBoard.board,
-                               plies=tempBoard.plies, wCap=tempBoard.whiteCaptivePieces, explorationConstant=0.3,
-                               bCap=tempBoard.blackCaptivePieces, noise=False, actuallyAPawn=tempBoard.actuallyAPawn, printPGN=False)
+            self.playout(str(int(i + 1)), notFromBeginning=True, arrayBoard=tempBoard.arrayBoard,
+                         pythonBoard=tempBoard.board,
+                         plies=tempBoard.plies, wCap=tempBoard.whiteCaptivePieces, explorationConstant=0.3,
+                         bCap=tempBoard.blackCaptivePieces, noise=False, actuallyAPawn=tempBoard.actuallyAPawn,
+                         printPGN=False)
 
-            #self.printSize()
+            # self.printSize()
             print(self.childrenMoveNames[self.dictionary[sim.boardToString()]])
             print(self.childrenStateSeen[self.dictionary[sim.boardToString()]])
 
@@ -350,12 +356,11 @@ class MCTS():
             self.trainingPlayoutsFromPosition(playouts, sim)
             directory = self.dictionary[sim.boardToString()]
             index = np.argmax(
-                PUCT_Algorithm(self.childrenStateWin[directory], self.childrenStateSeen[directory], 0.1,
+                PUCT_Algorithm(self.childrenStateWin[directory], self.childrenStateSeen[directory], 0.22,
+                               # 0.25-0.30 guarantees diversity
                                np.sum(self.childrenStateSeen[directory]),
-                               noiseEvals(self.childrenNNEvaluation[directory], 1.8/(5*(sim.plies+1))))
-                # if there are too many weird openings, decrease 0.6 to 0.48, decrease 5 to 4.
-
-                )
+                               noiseEvals(self.childrenNNEvaluation[directory], 1.35 / (6 * ((sim.plies // 2) + 1))))
+            )
             move = self.childrenMoveNames[directory][index]
             moveNames = self.childrenMoveNames[directory]
 
@@ -393,24 +398,24 @@ class MCTS():
             for i in range(len(whiteStateSeen)):
                 whiteStateWin.append(whiteStateSeen[i])
             for j in range(len(blackStateSeen)):
-                blackStateWin.append(blackStateSeen[j]*0)
+                blackStateWin.append(blackStateSeen[j] * 0)
         if sim.result == 0:
             PGN.headers["Result"] = "1/2-1/2"
             for i in range(len(whiteStateSeen)):
-                whiteStateWin.append(whiteStateSeen[i]*0.5)
+                whiteStateWin.append(whiteStateSeen[i] * 0.5)
             for j in range(len(blackStateSeen)):
-                blackStateWin.append(blackStateSeen[j]*0.5)
+                blackStateWin.append(blackStateSeen[j] * 0.5)
         if sim.result == -1:
             PGN.headers["Result"] = "0-1"
             for i in range(len(whiteStateSeen)):
-                whiteStateWin.append(whiteStateSeen[i]*0)
+                whiteStateWin.append(whiteStateSeen[i] * 0)
             for j in range(len(blackStateSeen)):
                 blackStateWin.append(blackStateSeen[j])
         if sim.result == 2:
             for i in range(len(whiteStateSeen)):
-                whiteStateWin.append(whiteStateSeen[i]*0)
+                whiteStateWin.append(whiteStateSeen[i] * 1)
             for j in range(len(blackStateSeen)):
-                blackStateWin.append(blackStateSeen[j]*0)
+                blackStateWin.append(blackStateSeen[j] * 1)
 
         parentStates = np.concatenate((whiteParentState, blackParentState))
         statesSeen = whiteStateSeen + blackStateSeen
@@ -418,7 +423,7 @@ class MCTS():
         statesNames = whiteStateNames + blackStateNames
 
         print(PGN)
-        
+
         return parentStates, statesSeen, statesWin, statesNames
 
     def simulateCompetitiveGame(self, playouts):
@@ -452,7 +457,7 @@ class MCTS():
                 PUCT_Algorithm(self.childrenStateWin[directory], self.childrenStateSeen[directory], 0,
                                np.sum(self.childrenStateSeen[directory]),
                                self.childrenNNEvaluation[directory])
-                )
+            )
             move = self.childrenMoveNames[directory][index]
             print(move)
             sim.makeMove(move)
@@ -474,47 +479,18 @@ class MCTS():
 
         print(PGN)
 
-        PGN = chess.pgn.Game()
-        PGN.headers["Event"] = "Simulated Competitive Game"
-        PGN.headers["Site"] = "Nayoung's Home"
-        PGN.headers["Date"] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M')
-        PGN.headers["Round"] = "1"
-        PGN.headers["White"] = "Network: " + self.nameOfNetwork
-        PGN.headers["Black"] = "Network: " + self.nameOfNetwork
-        PGN.headers["Variant"] = "Crazyhouse"
-
-        sim = ChessEnvironment()
-        while sim.result == 2:
-            self.competitivePlayoutsFromPosition(playouts, sim)
-            directory = self.dictionary[sim.boardToString()]
-            index = np.argmax(
-                PUCT_Algorithm(self.childrenStateWin[directory], self.childrenStateSeen[directory], 0,
-                               np.sum(self.childrenStateSeen[directory]),
-                               self.childrenNNEvaluation[directory])
-                )
-            move = self.childrenMoveNames[directory][index]
-            print(move)
-            sim.makeMove(move)
-            sim.gameResult()
-
-            if sim.plies == 1:
-                node = PGN.add_variation(chess.Move.from_uci(move))
-            else:
-                node = node.add_variation(chess.Move.from_uci(move))
-
-            print(sim.board)
-
     def createTrainingGames(self, numberOfGames, playouts):
         trainingParentStates = np.zeros(1)
         trainingStatesSeen = []
         trainingStatesWin = []
         trainingStatesName = []
+        trainingWinPercentages = []
 
         for i in range(numberOfGames):
             newParentStates, \
-            newStatesSeen,\
+            newStatesSeen, \
             newStatesWin, \
-            newStatesName = self.simulateTrainingGame(playouts, round=str(int(i+1)))
+            newStatesName = self.simulateTrainingGame(playouts, round=str(int(i + 1)))
 
             if i == 0:  # if nothing has been added yet
                 trainingParentStates = newParentStates
@@ -531,7 +507,6 @@ class MCTS():
                             trainingStatesWin[k] = trainingStatesWin[k] + newStatesWin[j]
                             trainingStatesSeen[k] = trainingStatesSeen[k] + newStatesSeen[j]
                             removeDirectories.append(j)
-
                 removeDirectories.sort()
                 while len(removeDirectories) > 0:
                     index = removeDirectories.pop()
@@ -544,26 +519,69 @@ class MCTS():
                 trainingStatesSeen = trainingStatesSeen + newStatesSeen
                 trainingStatesWin = trainingStatesWin + newStatesWin
                 trainingStatesName = trainingStatesName + newStatesName
+        # Create win percentage for all moves:
+        for j in range(len(trainingStatesWin)):  # length of tSW and tSS should be the same
+            newEntry = np.divide(trainingStatesWin[j], trainingStatesSeen[j], out=np.zeros_like(trainingStatesWin[j]),
+                                 where=trainingStatesSeen[j] != 0)
+            trainingWinPercentages.append(newEntry)
 
-                trainingWinPercentages = []
-                # Create win percentage for all moves:
-                for i in range(len(trainingStatesWin)): #length of tSW and tSS should be the same
-                    newEntry = np.divide(trainingStatesWin[i], trainingStatesSeen[i], out=np.zeros_like(trainingStatesWin[i]),
-                                                                                                       where=trainingStatesSeen[i]!=0)
-                    trainingWinPercentages.append(newEntry)
-
-        # return the information. trainingWinPercentage shas to be converted to a numpy array of correct shape!
+        # return the information. trainingWinPercentages has to be converted to a numpy array of correct shape!
         print("Size of Training Material: ", len(trainingParentStates))
-        return trainingParentStates, trainingWinPercentages
+        print(len(trainingWinPercentages))
+        print(len(trainingStatesName))
+        print(len(trainingParentStates))
+        print(trainingParentStates.shape)
 
-            # create trainingData.
+        # now, for each trainingWinPercentages and trainingStatesName, convert this into an output that the NN can train on.
+
+        trainingParentActions = np.zeros(1)
+
+        # create output for nn
+        for k in range(len(trainingStatesWin)):
+            actionTaken = np.zeros((1, 4504))
+            # find the board position when move was played.
+            blankBoard = [[" ", " ", " ", " ", " ", " ", " ", " "],  # 0 - 7
+                          [" ", " ", " ", " ", " ", " ", " ", " "],  # 8 - 15
+                          [" ", " ", " ", " ", " ", " ", " ", " "],  # 16 - 23
+                          [" ", " ", " ", " ", " ", " ", " ", " "],  # 24 - 31
+                          [" ", " ", " ", " ", " ", " ", " ", " "],  # 32 - 39
+                          [" ", " ", " ", " ", " ", " ", " ", " "],  # 40 - 47
+                          [" ", " ", " ", " ", " ", " ", " ", " "],  # 48 - 55
+                          [" ", " ", " ", " ", " ", " ", " ", " "]]  # 56 - 63
+            for i in range(64):
+                pieces = "PNBRQKpnbrqk"
+                for j in range(len(pieces)):
+                    if trainingParentStates[k].flatten()[(j*64)+i] == 1:
+                        blankBoard[i//8][i % 8] = pieces[j]
+
+            # this is the board.
+            #print(blankBoard)
+            # this is the move chosen
+            #print(trainingStatesName[k][np.argmax(trainingStatesSeen[k])])
+
+            for l in range(len(trainingStatesName[k])):
+                if l == 0:
+                    actionTaken = ActionToArray.moveArray(trainingStatesName[k][l], blankBoard) * trainingStatesWin[k][l]
+                else:
+                    additionalAction = ActionToArray.moveArray(trainingStatesName[k][l], blankBoard) * trainingStatesWin[k][l]
+                    actionTaken = actionTaken + additionalAction
+
+            if k == 0:
+                trainingParentActions = actionTaken
+            else:
+                trainingParentActions = np.concatenate((trainingParentActions, actionTaken), axis=0)
+
+        #print(np.sum(trainingParentActions, axis=1))
+
+        return trainingParentStates, trainingParentActions
+
+
+
 # Initialize board and the MCTS.
 
-treeSearch = MCTS('newWeights.pt')
+treeSearch = MCTS('supervised.pt')
+'''
 
-# check to see how fast a playout is.
-
-"""
 PLAYOUTS = 10
 start = time.time()
 treeSearch.competitivePlayoutFromBeginning(PLAYOUTS, True)
@@ -572,20 +590,18 @@ end = time.time()
 print("\nStatistics:")
 print(end-start, "seconds elapsed.")
 print("Average time for a game", (end-start)/PLAYOUTS, "seconds.")
-"""
+'''
 
 newBoard = ChessEnvironment()
 
-# FOR playout, update the legal moves, and should check if position that is currently seen and saved has the
-# same length for the legal moves. if not, refresh the stateSeen and stateWin
+blah = np.load("selfPlay01Output.npy")
+print(blah.shape)
 
-treeSearch.createTrainingGames(100, 1)
-
-# don't bother with competitive games yet.
-# for boardtostring, check if there is en passant square
+#selfPlayInput, selfPlayOutput = treeSearch.createTrainingGames(20, 1)
+#np.save("selfPlay01Input.npy", selfPlayInput)
+#np.save("selfPlay01Output.npy", selfPlayOutput)
 
 treeSearch.printSize()
-
 
 # in the future, the number of playouts at a position can be dependent on how many possible moves there are
 # this way, resources are allocated and used when most necessary.

@@ -257,7 +257,7 @@ def moveArray(move, board, notArrayToString=True):
                     if columnMovement < 0:  # WEST
                         directory = 6
 
-                magnitude = max(rowMovement, columnMovement) - 1
+                magnitude = max(abs(rowMovement), abs(columnMovement)) - 1
                 movePlane[directory][magnitude][8 - int(move[3])][int(rowNames.find(move[2]))] = 1
         elif board[8 - int(move[1])][int(rowNames.find(move[0]))] == " ":
             print("not legal move")  # don't do anything

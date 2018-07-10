@@ -139,7 +139,7 @@ class ChessEnvironment():
                 self.allBoards = np.concatenate((self.wPawnBoard, self.wKnightBoard, self.wBishopBoard, self.wRookBoard,
                                                  self.wQueenBoard, self.wKingBoard,
                                                  self.bPawnBoard, self.bKnightBoard, self.bBishopBoard, self.bRookBoard,
-                                                 self.bQueenBoard, self.bKingBoard
+                                                 self.bQueenBoard, self.bKingBoard, self.actuallyAPawn
                                                  ))
 
     def makeMove(self, move):
@@ -322,5 +322,5 @@ class ChessEnvironment():
         self.updateNumpyBoards()
 
         # perhaps work on adding 1s for spaces....
-        return np.reshape(np.concatenate((self.allBoards, captiveToBinary)), (1, 1, 104, 8))  # 32, 26, or 104, 8
+        return np.reshape(np.concatenate((self.allBoards, captiveToBinary)), (1, 1, 112, 8))  # 32, 26, or 104, 8
 
